@@ -5,7 +5,7 @@ document.ontouchstart = (e) =>  posY1 = e.touches[0].pageY;
 document.ontouchend = (e) => {
     posY2 = e.changedTouches[0].pageY;
     scroll = posY1 - posY2;
-    if (scroll > 50 && currentPage < 3) {
+    if (scroll > 30 && currentPage < 3) {
         let [page1, page2] = [pages[currentPage], pages[currentPage + 1]];
             currentPage++;
         let [height, opacity] = [100,0];
@@ -18,7 +18,7 @@ document.ontouchend = (e) => {
                 page2.style.opacity = (opacity / 100 ) + '';
             } else clearInterval(anim);
         }, 40);
-    } else if (scroll < -50 && currentPage > 0) {
+    } else if (scroll < -30 && currentPage > 0) {
         [page1, page2] = [pages[currentPage], pages[currentPage -1]];
         currentPage--;
         let [height, opacity] = [0, 100];
